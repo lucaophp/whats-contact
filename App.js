@@ -58,7 +58,7 @@ const App = () => {
             tx.executeSql('SELECT * FROM CONTATOS',null, (txObj, { rows: { _array } }) => {
         
                 if (_array && _array.length > 0) setContatos(_array)
-                else setContatos([{ id: 1, nome: "Lucas", numero: "+5531991514759"}, { id: 12, nome: "Lucas", numero: "3199999999"}])
+                else setContatos([])
             });
         });
     }
