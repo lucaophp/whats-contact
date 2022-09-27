@@ -2,7 +2,7 @@
   "expo": {
     "name": "whats-contact",
     "slug": "whats-contact",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -26,7 +26,8 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.lucaophp.whatscontact",
-      "permissions": []
+      "permissions": ["INTERNET","SYSTEM_ALERT_WINDOW","WAKE_LOCK","MANAGE_DOCUMENTS","READ_INTERNAL_STORAGE","READ_PHONE_STATE","USE_FINGERPRINT","INSTALL_SHORTCUT","VIBRATE","READ_EXTERNAL_STORAGE","WRITE_EXTERNAL_STORAGE","WRITE_SETTINGS"],
+      "versionCode": 2
     },
     "web": {
       "favicon": "./assets/favicon.png"
