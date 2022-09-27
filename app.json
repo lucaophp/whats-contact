@@ -25,7 +25,8 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       },
-      "package": "com.lucaophp.whatscontact"
+      "package": "com.lucaophp.whatscontact",
+      "permissions": []
     },
     "web": {
       "favicon": "./assets/favicon.png"
