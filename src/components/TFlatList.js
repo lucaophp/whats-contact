@@ -38,18 +38,11 @@ const openWhats = ({ numero }) => {
   })
 }
 const deleteWhats = ({ id }, onRemove = (id) => {}) => {
-  const deletar = () => {
-    db_.transaction((tx) => {
-      tx.executeSql('DELETE FROM CONTATOS WHERE id = ?', [id], (e) => {
-        onRemove(id)
-      })
-    })
-  }
   Alert.alert("Excluir", "Você deseja excluir esse item?", [
     {
       text: "Sim",
       onPress: () => {
-        deletar();
+        onRemove(id);
       },
     },
     {
@@ -62,9 +55,6 @@ const deleteWhats = ({ id }, onRemove = (id) => {}) => {
 const TFlatList = ({ data, db, onRemove, onEdit = () => {}, onTransfere = () => {}, keyN = null }) => {
   db_ = db
   data_ = data
-  console.log(
-     { data }
-  )
   return (
     <View style={styles.container}>
       <FlatList

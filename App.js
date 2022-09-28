@@ -62,6 +62,13 @@ const App = () => {
             });
         });
     }
+    const deletar = (id, onRemove = () => {}) => {
+        db_.transaction((tx) => {
+          tx.executeSql('DELETE FROM CONTATOS WHERE id = ?', [id], (e) => {
+            onRemove(id)
+          })
+        })
+      }
     
     return (
         <View style={ styles.container }>
@@ -95,8 +102,16 @@ const App = () => {
                     }}></TCadastro>: <View></View>
                 }
                 <TFlatList db={db} data={contatos}
-                onEdit={(item) => {setContato(item);setCadastro(true); }}
-                onRemove={(id) => {setContatos(contatos.filter(c => c.id!=id));atualizar()}}
+                    onEdit={(item) => {
+                        setContato(item);
+                        setCadastro(true);
+                    }}
+                    onRemove={(id) => {
+                        deletar(id, (id) => {
+                            setContatos(contatos.filter(c => c.id!=id));
+                            atualizar()
+                        }) 
+                    }}
                 />
             </ScrollView>
             <View style={{ padding: 10, backgroundColor: 'indigo', opacity: 0.8 }}>
